@@ -2,8 +2,8 @@ const CACHE_NAME = "sinal-escolar-v3";
 const APP_FILES = [
   "./",
   "./index.html",
-  "./styles.css",
-  "./app.js",
+  "./assets/css/styles.css",
+  "./assets/js/app.js",
   "./manifest.webmanifest"
 ];
 

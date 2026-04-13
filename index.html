@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <div class="bg-glow bg-glow-a"></div>
@@ -24,7 +24,7 @@
       </header>
 
       <section class="card status-card">
-        <h2>Status em tempo real</h2>
+        <h2>Status</h2>
         <div class="status-grid">
           <div>
             <p class="label">Agora</p>
@@ -45,16 +45,13 @@
         <h2>Pastas de sons</h2>
         <p class="hint">Mantenha os arquivos MP3 no projeto:</p>
         <ul class="list">
-          <li><strong>Musicas:</strong> <code>sounds/musicas/Segunda-Quarta</code>, <code>sounds/musicas/Terca-Quinta</code> e <code>sounds/musicas/Sexta</code></li>
-          <li><strong>Sinal:</strong> <code>sounds/sinal/</code></li>
+          <li><strong>Musicas:</strong> <code>assets/audio/musicas/Segunda-Quarta</code>, <code>assets/audio/musicas/Terca-Quinta</code> e <code>assets/audio/musicas/Sexta</code></li>
+          <li><strong>Sinal:</strong> <code>assets/audio/sinal/</code></li>
         </ul>
       </section>
 
       <section class="card">
         <h2>Musicas MP3 por dia</h2>
-        <p class="hint">
-          Configuracao fixa: 07:30 ate 08:00 com pastas predefinidas.
-        </p>
         <div class="schedule-list">
           <div class="schedule-item">
             <div>
@@ -65,19 +62,19 @@
           <div class="schedule-item">
             <div>
               <strong>Segunda e Quarta</strong><br />
-              sounds/musicas/Segunda-Quarta
+              <span id="countSegundaQuarta">0 musicas</span>
             </div>
           </div>
           <div class="schedule-item">
             <div>
               <strong>Terca e Quinta</strong><br />
-              sounds/musicas/Terca-Quinta
+              <span id="countTercaQuinta">0 musicas</span>
             </div>
           </div>
           <div class="schedule-item">
             <div>
               <strong>Sexta</strong><br />
-              sounds/musicas/Sexta
+              <span id="countSexta">0 musicas</span>
             </div>
           </div>
         </div>
@@ -91,12 +88,6 @@
             <div>
               <strong>Horario fixo do sinal</strong><br />
               08:00 por 60 segundos
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div>
-              <strong>Origem do sinal</strong><br />
-              <span id="signalFileInfo">sounds/sinal/tracks.json (primeiro arquivo)</span>
             </div>
           </div>
         </div>
@@ -116,6 +107,6 @@
     <audio id="musicAudio" preload="none"></audio>
     <audio id="bellAudio" preload="none"></audio>
 
-    <script src="app.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>
