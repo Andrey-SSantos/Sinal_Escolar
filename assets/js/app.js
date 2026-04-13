@@ -44,6 +44,8 @@ const bellState = document.getElementById("bellState");
 const countSegundaQuarta = document.getElementById("countSegundaQuarta");
 const countTercaQuinta = document.getElementById("countTercaQuinta");
 const countSexta = document.getElementById("countSexta");
+const musicFixedTime = document.getElementById("musicFixedTime");
+const signalFixedTime = document.getElementById("signalFixedTime");
 
 const musicDayGrid = document.getElementById("musicDayGrid");
 
@@ -54,6 +56,7 @@ document.getElementById("stopAll").addEventListener("click", stopAllAudio);
 renderMusicByDay();
 renderClock();
 refreshMusicState();
+refreshFixedScheduleInfo();
 timerId = setInterval(tickScheduler, 1000);
 tickScheduler();
 setInterval(renderClock, 1000);
@@ -98,6 +101,16 @@ function getFolderForDay(dayKey) {
   }
 
   return "";
+}
+
+function refreshFixedScheduleInfo() {
+  if (musicFixedTime) {
+    musicFixedTime.textContent = `${config.musicWindow.start} ate ${config.musicWindow.end}`;
+  }
+
+  if (signalFixedTime) {
+    signalFixedTime.textContent = `${FIXED_BELL.start} por ${FIXED_BELL.duration} segundos`;
+  }
 }
 
 function saveConfig(next) {
