@@ -289,8 +289,38 @@ function formatHHMM(date) {
   return `${h}:${m}`;
 }
 
+function parseHHMMToMinutes(value) {
+  const [rawH, rawM] = String(value || "").split(":");
+  const h = Number(rawH);
+  const m = Number(rawM);
+
+  if (!Number.isFinite(h) || !Number.isFinite(m)) {
+    return NaN;
+  }
+
+  if (h < 0 || h > 23 || m < 0 || m > 59) {
+    return NaN;
+  }
+
+  return (h * 60) + m;
+}
+
 function isTimeWithinRange(current, start, end) {
-  return current >= start && current < end;
+  const currentMin = parseHHMMToMinutes(current);
+  const startMin = parseHHMMToMinutes(start);
+  const endMin = parseHHMMToMinutes(end);
+
+  if ([currentMin, startMin, endMin].some(Number.isNaN)) {
+    return false;
+  }
+
+  // Janela normal: 13:00 -> 14:00
+  if (startMin <= endMin) {
+    return currentMin >= startMin && currentMin < endMin;
+  }
+
+  // Janela atravessando meia-noite: 23:00 -> 01:00
+  return currentMin >= startMin || currentMin < endMin;
 }
 
 function getDayKey(dayIndex) {

@@ -1,4 +1,4 @@
-const CACHE_NAME = "sinal-escolar-v2";
+const CACHE_NAME = "sinal-escolar-v3";
 const APP_FILES = [
   "./",
   "./index.html",
@@ -24,7 +24,12 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const requestUrl = new URL(event.request.url);
 
-  if (requestUrl.pathname.endsWith("/") || requestUrl.pathname.endsWith(".html")) {
+  if (
+    requestUrl.pathname.endsWith("/") ||
+    requestUrl.pathname.endsWith(".html") ||
+    requestUrl.pathname.endsWith(".js") ||
+    requestUrl.pathname.endsWith(".css")
+  ) {
     event.respondWith(
       fetch(event.request)
         .then((response) => {
