@@ -141,7 +141,7 @@ async function getTracksForDay(dayKey) {
     const tracks = fileNames
       .map((name) => String(name).trim())
       .filter(Boolean)
-      .map((name) => `${folder}/${name}`);
+      .map((name) => `${folder}/${encodeURIComponent(name)}`);
 
     dayTracksCache[dayKey] = tracks;
     return tracks;
@@ -164,7 +164,7 @@ async function getSignalTrack() {
       if (Array.isArray(fileNames) && fileNames.length > 0) {
         const first = String(fileNames[0]).trim();
         if (first) {
-          signalTrackCache = `${FIXED_BELL.folder}/${first}`;
+          signalTrackCache = `${FIXED_BELL.folder}/${encodeURIComponent(first)}`;
           return signalTrackCache;
         }
       }
