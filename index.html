@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0c1b2a" />
+    <title>Sinal Escolar</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow-a"></div>
+    <div class="bg-glow bg-glow-b"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <h1>Sinal Escolar</h1>
+      </header>
+
+      <section class="card status-card">
+        <h2>Status em tempo real</h2>
+        <div class="status-grid">
+          <div>
+            <p class="label">Agora</p>
+            <p id="nowTime" class="value">--:--:--</p>
+          </div>
+          <div>
+            <p class="label">Musica</p>
+            <p id="musicState" class="value">Parada</p>
+          </div>
+          <div>
+            <p class="label">Sinal</p>
+            <p id="bellState" class="value">Parado</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card is-hidden">
+        <h2>Pastas de sons</h2>
+        <p class="hint">Mantenha os arquivos MP3 no projeto:</p>
+        <ul class="list">
+          <li><strong>Musicas:</strong> <code>sounds/musicas/Segunda-Quarta</code>, <code>sounds/musicas/Terca-Quinta</code> e <code>sounds/musicas/Sexta</code></li>
+          <li><strong>Sinal:</strong> <code>sounds/sinal/</code></li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Musicas MP3 por dia</h2>
+        <p class="hint">
+          Configuracao fixa: 07:30 ate 08:00 com pastas predefinidas.
+        </p>
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div>
+              <strong>Horario fixo da musica</strong><br />
+              07:30 ate 08:00
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div>
+              <strong>Segunda e Quarta</strong><br />
+              sounds/musicas/Segunda-Quarta
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div>
+              <strong>Terca e Quinta</strong><br />
+              sounds/musicas/Terca-Quinta
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div>
+              <strong>Sexta</strong><br />
+              sounds/musicas/Sexta
+            </div>
+          </div>
+        </div>
+        <div class="playlist-grid is-hidden" id="musicDayGrid"></div>
+      </section>
+
+      <section class="card config-card">
+        <h2>Configuracao de sinal</h2>
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div>
+              <strong>Horario fixo do sinal</strong><br />
+              08:00 por 60 segundos
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div>
+              <strong>Origem do sinal</strong><br />
+              <span id="signalFileInfo">sounds/sinal/tracks.json (primeiro arquivo)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="manualControlsSection" class="card is-hidden">
+        <h2>Reprodutor</h2>
+        <p class="hint">Teste a musica do dia e o sinal manualmente. Para reativar este bloco, remova a classe is-hidden no HTML.</p>
+        <div class="player-actions">
+          <button id="testMusicToday" class="btn-secondary" type="button">Testar musica de hoje</button>
+          <button id="testBell" class="btn-secondary" type="button">Testar sinal</button>
+          <button id="stopAll" class="btn-danger" type="button">Parar tudo</button>
+        </div>
+      </section>
+    </main>
+
+    <audio id="musicAudio" preload="none"></audio>
+    <audio id="bellAudio" preload="none"></audio>
+
+    <script src="app.js"></script>
+  </body>
+</html>
