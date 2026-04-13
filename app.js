@@ -16,7 +16,7 @@ const DAY_LABELS = {
 const defaultConfig = {
   musicWindow: {
     start: "13:00",
-    end: "13:30"
+    end: "14:00"
   },
   folderGroups: {
     segundaQuarta: "sounds/musicas/Segunda-Quarta",
