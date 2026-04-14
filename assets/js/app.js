@@ -1,7 +1,7 @@
 const STORAGE_KEY = "sinal-escolar-config-v2";
 const FIXED_BELL = {
   name: "Entrada",
-  start: "15:00",
+  start: "08:00",
   duration: 60,
   folder: "assets/audio/sinal"
 };
@@ -15,8 +15,8 @@ const DAY_LABELS = {
 
 const defaultConfig = {
   musicWindow: {
-    start: "13:00",
-    end: "15:00"
+    start: "07:30",
+    end: "08:00"
   },
   folderGroups: {
     segundaQuarta: "assets/audio/musicas/Segunda-Quarta",
