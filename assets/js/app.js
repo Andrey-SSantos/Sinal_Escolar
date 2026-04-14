@@ -2,7 +2,7 @@ const STORAGE_KEY = "sinal-escolar-config-v2";
 const FIXED_BELL = {
   name: "Entrada",
   start: "08:00",
-  duration: 60,
+  duration: 20,
   folder: "assets/audio/sinal"
 };
 const DAY_LABELS = {
